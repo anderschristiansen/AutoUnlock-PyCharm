@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import db
 
-x = db.lejlighed_acceleration_x
-y = db.lejlighed_acceleration_y
+x = db.slangerup_acceleration_x
+y = db.slangerup_acceleration_y
 
 markers_on = [0]
 plt.plot(x, y, '-o', markersize=3)
