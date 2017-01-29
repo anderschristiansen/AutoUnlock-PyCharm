@@ -1,12 +1,39 @@
 import matplotlib.pyplot as plt
 import db
+import pylab
 
-x = db.lejlighed_acceleration_x
+fig = pylab.gcf()
+fig.canvas.set_window_title('ACCELEROMETER LEJLIGHED')
+
+x = db.lejlighed_acceleration_y
 y = db.lejlighed_acceleration_y
+z = db.lejlighed_acceleration_z
+time = db.lejlighed_timestamp
 
-markers_on = [0]
-plt.plot(x, y, '-o', markersize=3)
-plt.plot(x[0], y[0], '-o', markersize=10) #grøn
-plt.plot(x[-1], y[-1], '-o', markersize=10) #rød
+merged_acceleration = []
+
+for i, v in enumerate(x):
+    avg = sum(v + y[i] + z[i]) / 3
+    merged_acceleration.append(avg)
+
+plt.figure(1)
+
+plt.subplot(211)
+plt.plot(time, x, label='x')
+plt.plot(time, y, label='y')
+plt.plot(time, z, label='z')
+
+plt.title('Acceleration')
+plt.legend(loc='upper right')
+plt.xlabel('Milliseconds')
+plt.ylabel('M/s^2')
+
+plt.subplot(212)
+plt.plot(time, merged_acceleration, label='merged')
+
+plt.title('Merged Acceleration')
+plt.legend(loc='upper right')
+plt.xlabel('Milliseconds')
+plt.ylabel('M/s^2')
 
 plt.show()

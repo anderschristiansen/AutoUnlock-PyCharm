@@ -3,7 +3,6 @@ import sqlite3
 db_stue = sqlite3.connect('C:\@master\db\stue.db')
 db_slangerup = sqlite3.connect('C:\@master\db\slangerup.db').cursor()
 db_lejlighed = sqlite3.connect('C:\@master\db\lejlighed.db').cursor()
-db_test = sqlite3.connect('C:\@master\db\test.db').cursor()
 
 
 # LOCATION
@@ -27,13 +26,16 @@ sql_timestamp = "SELECT timestamp FROM accelerometer"
 
 lejlighed_acceleration_x = db_lejlighed.execute(sql_acceleration_x).fetchall()
 lejlighed_acceleration_y = db_lejlighed.execute(sql_acceleration_y).fetchall()
+lejlighed_acceleration_z = db_lejlighed.execute(sql_acceleration_z).fetchall()
+lejlighed_timestamp = db_lejlighed.execute(sql_timestamp).fetchall()
 
 slangerup_acceleration_x = db_slangerup.execute(sql_acceleration_x).fetchall()
 slangerup_acceleration_y = db_slangerup.execute(sql_acceleration_y).fetchall()
 
-test_acceleration_x = db_test.execute(sql_acceleration_x).fetchall()
-test_acceleration_y = db_test.execute(sql_acceleration_y).fetchall()
-test_acceleration_z = db_test.execute(sql_acceleration_z).fetchall()
-test_timestamp = db_test.execute(sql_timestamp).fetchall()
+stue_acceleration_x = db_stue.execute(sql_acceleration_x).fetchall()
+stue_acceleration_y = db_stue.execute(sql_acceleration_y).fetchall()
+stue_acceleration_z = db_stue.execute(sql_acceleration_z).fetchall()
+stue_timestamp = db_stue.execute(sql_timestamp).fetchall()
+
 
 
