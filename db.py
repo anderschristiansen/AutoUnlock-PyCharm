@@ -4,6 +4,11 @@ db_stue = sqlite3.connect('C:\@master\db\stue.db')
 db_slangerup = sqlite3.connect('C:\@master\db\slangerup.db').cursor()
 db_lejlighed = sqlite3.connect('C:\@master\db\lejlighed.db').cursor()
 
+db_kor_0 = sqlite3.connect('C:\@master\db\korrekte-lomme\AutoUnlock-0.db').cursor()
+
+#db_ukor_1 = sqlite3.connect('C:\@master\db\korrekteU-lomme\kortAutoUnlock-1.db').cursor()
+
+
 
 # LOCATION
 sql_latitude = "SELECT latitude FROM location"
@@ -37,5 +42,12 @@ stue_acceleration_y = db_stue.execute(sql_acceleration_y).fetchall()
 stue_acceleration_z = db_stue.execute(sql_acceleration_z).fetchall()
 stue_timestamp = db_stue.execute(sql_timestamp).fetchall()
 
+kor_acceleration_x = db_kor_0.execute(sql_acceleration_x).fetchall()
+kor_acceleration_y = db_kor_0.execute(sql_acceleration_y).fetchall()
+kor_acceleration_z = db_kor_0.execute(sql_acceleration_z).fetchall()
+kor_timestamp = db_kor_0.execute(sql_timestamp).fetchall()
 
-
+#ukor_acceleration_x = db_ukor.execute(sql_acceleration_x).fetchall()
+#ukor_acceleration_y = db_ukor.execute(sql_acceleration_y).fetchall()
+#ukor_acceleration_z = db_ukor.execute(sql_acceleration_z).fetchall()
+#ukor_timestamp = db_ukor.execute(sql_timestamp).fetchall()
